@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   func_rotate.c                                      :+:      :+:    :+:   */
+/*   ps_check_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wting <wting@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 18:13:16 by wting             #+#    #+#             */
-/*   Updated: 2023/01/10 22:22:09 by wting            ###   ########.fr       */
+/*   Created: 2023/01/10 20:32:51 by wting             #+#    #+#             */
+/*   Updated: 2023/01/17 22:30:13 by wting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack *stack)
+int	check_sorted(t_stack *stack, int bool)
 {
 	int	i;
+	int	tmp;
 
-	if (stack->alen <= 1)
-		return ;
 	i = -1;
-	while (++i < stack->alen - 1)
-		index_swap(stack->a, i, i + 1);
-}
-
-void	rb(t_stack *stack)
-{
-	int	i;
-
-	if (stack->blen <= 1)
-		return ;
-	i = -1;
-	while (++i < stack->blen - 1)
-		index_swap(stack->b, i, i + 1);
-}
-
-void	rr(t_stack *stack)
-{
-	ra(stack);
-	rb(stack);
+	tmp = INT_MIN;
+	while (++i < stack->alen)
+	{
+		if (tmp > stack->a[i])
+			return (0);
+		tmp = stack->a[i];
+	}
+	if (stack->blen != 0)
+		return (0);
+	exit_free(stack, bool);
+	return (0);
 }

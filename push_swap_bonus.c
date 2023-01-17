@@ -6,7 +6,7 @@
 /*   By: wting <wting@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:19:18 by wting             #+#    #+#             */
-/*   Updated: 2023/01/10 23:08:53 by wting            ###   ########.fr       */
+/*   Updated: 2023/01/17 22:45:56 by wting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@
 void	run_func(char *tmp, t_stack *stack)
 {
 	if (!ft_strncmp(tmp, "sa\n", ft_strlen(tmp)))
-		sa(stack);
+		sa(stack, 0);
 	else if (!ft_strncmp(tmp, "sb\n", ft_strlen(tmp)))
-		sb(stack);
+		sb(stack, 0);
 	else if (!ft_strncmp(tmp, "ss\n", ft_strlen(tmp)))
-		ss(stack);
+		ss(stack, 0);
 	else if (!ft_strncmp(tmp, "pa\n", ft_strlen(tmp)))
-		pa(stack);
+		pa(stack, 0);
 	else if (!ft_strncmp(tmp, "pb\n", ft_strlen(tmp)))
-		pb(stack);
+		pb(stack, 0);
 	else if (!ft_strncmp(tmp, "ra\n", ft_strlen(tmp)))
-		ra(stack);
+		ra(stack, 0);
 	else if (!ft_strncmp(tmp, "rb\n", ft_strlen(tmp)))
-		rb(stack);
+		rb(stack, 0);
 	else if (!ft_strncmp(tmp, "rr\n", ft_strlen(tmp)))
-		rr(stack);
+		rr(stack, 0);
 	else if (!ft_strncmp(tmp, "rra\n", ft_strlen(tmp)))
-		rra(stack);
+		rra(stack, 0);
 	else if (!ft_strncmp(tmp, "rrb\n", ft_strlen(tmp)))
-		rrb(stack);
+		rrb(stack, 0);
 	else if (!ft_strncmp(tmp, "rrr\n", ft_strlen(tmp)))
-		rrr(stack);
+		rrr(stack, 0);
 	else if (ft_strncmp(tmp, "\n", ft_strlen(tmp)))
 		exit_free(stack, 1);
 }
@@ -56,7 +56,7 @@ void	read_input(t_stack *stack)
 	{
 		tmp = get_next_line(0);
 		run_func(tmp, stack);
-		check_sorted(stack);
+		check_sorted(stack, 2);
 		if (!ft_strncmp(tmp, "\n", ft_strlen(tmp)))
 		{
 			write(1, "KO\n", 3);
@@ -74,6 +74,6 @@ int	main(int ac, char **av)
 	stack.alen = 0;
 	stack.blen = 0;
 	error_parse(ac, av, &stack);
-	check_sorted(&stack);
+	check_sorted(&stack, 2);
 	read_input(&stack);
 }

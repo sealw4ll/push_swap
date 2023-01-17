@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   ps_func_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wting <wting@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 20:44:44 by wting             #+#    #+#             */
-/*   Updated: 2023/01/10 23:04:52 by wting            ###   ########.fr       */
+/*   Created: 2022/11/03 16:04:45 by wting             #+#    #+#             */
+/*   Updated: 2023/01/17 22:23:35 by wting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	exit_free(t_stack *stack, int bool)
+void	sa(t_stack *stack, int bool)
 {
-	if (bool == 0)
-	{
-		free (stack->a);
-		free (stack->b);
-		exit (0);
-	}
-	free (stack->a);
-	free (stack->b);
-	write(2, "Error\n", 6);
-	exit (0);
+	if (stack->alen <= 1)
+		return ;
+	index_swap(stack->a, 0, 1);
+	if (bool == 1)
+		write(1, "sa\n", 3);
 }
 
-void	quick_exit(t_stack *stack)
+void	sb(t_stack *stack, int bool)
 {
-	write(2, "Error\n", 6);
-	exit (0);
+	if (stack->blen <= 1)
+		return ;
+	index_swap(stack->b, 0, 1);
+	if (bool == 1)
+		write(1, "sb\n", 3);
+}
+
+void	ss(t_stack *stack, int bool)
+{
+	sa(stack, 0);
+	sb(stack, 0);
+	if (bool == 1)
+		write(1, "ss\n", 3);
 }

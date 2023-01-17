@@ -6,7 +6,7 @@
 /*   By: wting <wting@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:44:15 by wting             #+#    #+#             */
-/*   Updated: 2023/01/10 23:07:31 by wting            ###   ########.fr       */
+/*   Updated: 2023/01/17 17:41:23 by wting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	init_vars(t_stack *stack)
 	stack->b = malloc(sizeof(int) * stack->alen);
 }
 
-void	error_parse_2(int ac, char **av, t_stack *stack)
+void	error_parse_2(char **av, t_stack *stack)
 {
 	int	i;
 
@@ -69,7 +69,7 @@ void	error_parse_2(int ac, char **av, t_stack *stack)
 	while (av[++i])
 	{
 		if (!num_check(av[i]))
-			quick_exit(stack);
+			quick_exit();
 		stack->alen += 1;
 	}
 	parse_arr(av, stack);
@@ -81,18 +81,18 @@ void	error_parse(int ac, char **av, t_stack *stack)
 
 	i = 0;
 	if (ac == 1 || !av)
-		quick_exit(stack);
+		quick_exit();
 	if (ac == 2)
 	{
 		while (av[1][++i])
 		{
 			if (av[1][i] != ' ' && !ft_isdigit(av[1][i]))
-				quick_exit(stack);
+				quick_exit();
 		}
 		if (av[2])
-			quick_exit(stack);
+			quick_exit();
 		parse_string(av[1], stack);
 	}
 	else
-		error_parse_2(ac, av, stack);
+		error_parse_2(av, stack);
 }

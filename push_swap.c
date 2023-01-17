@@ -6,7 +6,7 @@
 /*   By: wting <wting@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:29:43 by wting             #+#    #+#             */
-/*   Updated: 2023/01/10 23:03:21 by wting            ###   ########.fr       */
+/*   Updated: 2023/01/17 22:31:19 by wting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,11 @@ int	main(int ac, char **av)
 	stack.alen = 0;
 	stack.blen = 0;
 	error_parse(ac, av, &stack);
+	check_sorted(&stack, 0);
+	if (stack.alen == 2)
+		sa(&stack, 1);
+	else if (stack.alen == 3)
+		sort_3(&stack);
+	else
+		ps_radixsort(&stack);
 }

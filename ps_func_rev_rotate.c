@@ -1,33 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   func_swap.c                                        :+:      :+:    :+:   */
+/*   ps_func_rev_rotate.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wting <wting@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 16:04:45 by wting             #+#    #+#             */
-/*   Updated: 2023/01/10 23:04:28 by wting            ###   ########.fr       */
+/*   Created: 2022/11/14 20:56:08 by wting             #+#    #+#             */
+/*   Updated: 2023/01/17 22:13:07 by wting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *stack)
+void	rra(t_stack *stack, int bool)
 {
+	int	i;
+
 	if (stack->alen <= 1)
 		return ;
-	index_swap(stack->a, 0, 1);
+	i = stack->alen;
+	while (--i > 0)
+		index_swap(stack->a, i, i - 1);
+	if (bool == 1)
+		write(1, "rra\n", 4);
 }
 
-void	sb(t_stack *stack)
+void	rrb(t_stack *stack, int bool)
 {
+	int	i;
+
 	if (stack->blen <= 1)
 		return ;
-	index_swap(stack->b, 0, 1);
+	i = stack->blen;
+	while (--i > 0)
+		index_swap(stack->b, i, i - 1);
+	if (bool == 1)
+		write(1, "rrb\n", 4);
 }
 
-void	ss(t_stack *stack)
+void	rrr(t_stack *stack, int bool)
 {
-	sa(stack);
-	sb(stack);
+	rra(stack, 0);
+	rrb(stack, 0);
+	if (bool == 1)
+		write(1, "rrr\n", 4);
 }

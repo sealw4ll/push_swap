@@ -6,7 +6,7 @@
 /*   By: wting <wting@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 16:02:24 by wting             #+#    #+#             */
-/*   Updated: 2023/01/10 23:02:48 by wting            ###   ########.fr       */
+/*   Updated: 2023/01/17 22:21:43 by wting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <limits.h>
 # include "./libft/libft.h"
 
 typedef struct s_stack
@@ -28,29 +29,37 @@ typedef struct s_stack
 void	index_swap(int *list, int i1, int i2);
 int		num_check(char *str);
 
-void	sa(t_stack *stack);
-void	sb(t_stack *stack);
-void	ss(t_stack *stack);
+void	sa(t_stack *stack, int bool);
+void	sb(t_stack *stack, int bool);
+void	ss(t_stack *stack, int bool);
 
-void	pa(t_stack *stack);
-void	pb(t_stack *stack);
+void	pa(t_stack *stack, int bool);
+void	pb(t_stack *stack, int bool);
 
-void	ra(t_stack *stack);
-void	rb(t_stack *stack);
-void	rr(t_stack *stack);
+void	ra(t_stack *stack, int bool);
+void	rb(t_stack *stack, int bool);
+void	rr(t_stack *stack, int bool);
 
-void	rra(t_stack *stack);
-void	rrb(t_stack *stack);
-void	rrr(t_stack *stack);
+void	rra(t_stack *stack, int bool);
+void	rrb(t_stack *stack, int bool);
+void	rrr(t_stack *stack, int bool);
 
 void	init_vars(t_stack *stack);
-void	quick_exit(t_stack *stack);
+void	quick_exit(void);
 void	error_parse(int ac, char **av, t_stack *stack);
 
 void	parse_string(char *av, t_stack *stack);
 void	parse_arr(char **av, t_stack *stack);
 
-void	check_sorted(t_stack *stack);
+int		check_sorted(t_stack *stack, int bool);
 void	exit_free(t_stack *stack, int bool);
+
+void	bubbleSort(int *arr, int n);
+void	indexing(t_stack *stack);
+void	swap(int *a, int *b);
+int		*dup_arr(int *arr, int len);
+
+void	sort_3(t_stack *stack);
+void	ps_radixsort(t_stack *stack);
 
 #endif
