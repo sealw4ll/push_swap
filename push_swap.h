@@ -6,7 +6,7 @@
 /*   By: wting <wting@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 16:02:24 by wting             #+#    #+#             */
-/*   Updated: 2023/01/17 22:21:43 by wting            ###   ########.fr       */
+/*   Updated: 2023/02/08 00:58:46 by wting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ void	indexing(t_stack *stack);
 void	swap(int *a, int *b);
 int		*dup_arr(int *arr, int len);
 
-void	sort_3(t_stack *stack);
+void	sort_3(t_stack *stack, int bool);
 void	ps_radixsort(t_stack *stack);
+void	sort_5(t_stack *stack);
 
 #endif

@@ -7,21 +7,22 @@ NAME = push_swap
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(SRCS) push_swap.c
 	make all -C libft
-	gcc push_swap.c $(SRCS) libft/*.a -Wall -Werror -Wextra -fsanitize=address -o push_swap
+	gcc push_swap.c $(SRCS) libft/*.a -Wall -Werror -Wextra -o push_swap -fsanitize=address
 
-bonus:
+bonus: $(SRCS) push_swap_bonus.c
 	make all -C libft
 	gcc push_swap_bonus.c $(SRCS) libft/*.a -Wall -Werror -Wextra -fsanitize=address -o checker
 
 b: bonus
 
 clean:
-	@echo "definetely cleared objects LOL"
+	make clean -C libft
 
 fclean: clean
 	rm -f push_swap
 	rm -f checker
+	make fclean -C libft
 
 make re: fclean all

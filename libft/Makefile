@@ -37,7 +37,6 @@ ar:
 
 bonus: $(OBJ) $(BONUS_OBJ) ar
 
-.PHONY: all clean fclean re ar bonus 
 
 # .PHONY is to make sure that if there is a
 #  file with the same name as a make operator it still runs
