@@ -6,7 +6,7 @@
 /*   By: wting <wting@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 19:01:13 by wting             #+#    #+#             */
-/*   Updated: 2023/02/08 01:01:32 by wting            ###   ########.fr       */
+/*   Updated: 2023/02/09 17:32:54 by wting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,30 @@ void	sort_3(t_stack *stack, int bool)
 		exit_free(stack, 0);
 }
 
+void	sort_4(t_stack *stack)
+{
+	while (stack->a[0] != 0)
+		ra(stack, 1);
+	pb(stack, 1);
+	indexing(stack);
+	sort_3(stack, 1);
+	pa(stack, 1);
+}
+
 void	sort_5(t_stack *stack)
 {
 	int	i;
 
 	i = 0;
 	if (stack->alen == 4)
-	{
-		while (stack->a[0] != 0)
-			ra(stack , 1);
-		pb(stack, 1);
-		indexing(stack);
-		sort_3(stack, 1);
-		pa(stack, 1);
-	}
+		sort_4(stack);
 	else if (stack->alen == 5)
 	{
 		while (i != 2)
 		{
 			if (stack->a[0] == 0 || stack->a[0] == 1)
 			{
-				pb(stack , 1);
+				pb(stack, 1);
 				++i;
 			}
 			else

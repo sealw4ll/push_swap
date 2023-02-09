@@ -9,11 +9,11 @@ all: $(NAME)
 
 $(NAME): $(SRCS) push_swap.c
 	make all -C libft
-	gcc push_swap.c $(SRCS) libft/*.a -Wall -Werror -Wextra -o push_swap -fsanitize=address
+	gcc push_swap.c $(SRCS) libft/*.a -Wall -Werror -Wextra -o push_swap #-fsanitize=address
 
 bonus: $(SRCS) push_swap_bonus.c
 	make all -C libft
-	gcc push_swap_bonus.c $(SRCS) libft/*.a -Wall -Werror -Wextra -fsanitize=address -o checker
+	gcc push_swap_bonus.c $(SRCS) libft/*.a -Wall -Werror -Wextra -o checker -fsanitize=address
 
 b: bonus
 

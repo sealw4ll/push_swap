@@ -6,7 +6,7 @@
 /*   By: wting <wting@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:19:18 by wting             #+#    #+#             */
-/*   Updated: 2023/01/17 22:45:56 by wting            ###   ########.fr       */
+/*   Updated: 2023/02/09 17:20:19 by wting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,17 @@ void	read_input(t_stack *stack)
 	while (1)
 	{
 		tmp = get_next_line(0);
+		if (!tmp || tmp[0] == 0 || tmp[0] == '\n')
+		{
+			write(2, "KO\n", 3);
+			exit(0);
+		}
 		run_func(tmp, stack);
+		free (tmp);
 		check_sorted(stack, 2);
 		if (!ft_strncmp(tmp, "\n", ft_strlen(tmp)))
 		{
-			write(1, "KO\n", 3);
+			write(2, "KO\n", 3);
 			exit_free(stack, 0);
 		}
 	}
